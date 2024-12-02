@@ -6,6 +6,7 @@ class NoteItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.symmetric(vertical: 4),
       decoration: BoxDecoration(
         color: Colors.amber,
         borderRadius: BorderRadius.circular(16),
@@ -21,12 +22,15 @@ class NoteItemWidget extends StatelessWidget {
                 "Flutter Tips",
                 style: TextStyle(color: Colors.black, fontSize: 28),
               ),
-              subtitle: const Text(
-                  "Start your career with flutter and enjoy the UI that's made ",
-                  style: TextStyle(
-                    color: Colors.black45,
-                    fontSize: 18,
-                  )),
+              subtitle: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 6.0),
+                child: Text(
+                    "Start your career with flutter and enjoy the UI that's made ",
+                    style: TextStyle(
+                      color: Colors.black45,
+                      fontSize: 18,
+                    )),
+              ),
               trailing: IconButton(
                   onPressed: () {},
                   icon: const Icon(
