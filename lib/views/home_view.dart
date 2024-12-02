@@ -6,9 +6,14 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
-        body: HomeViewBody(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add),
+        ),
+        floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+        body: const HomeViewBody(),
       ),
     );
   }
