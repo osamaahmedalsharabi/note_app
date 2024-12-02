@@ -2,23 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:third_note_app/views/widgets/custom_icon_widget.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  final String title;
+  final IconData icon;
+  const CustomAppBar({super.key, required this.title, required this.icon});
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 12.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12.0),
       child: Row(
         children: [
           Text(
-            "Notes",
-            style: TextStyle(
+            title,
+            style: const TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
             ),
           ),
-          Spacer(),
-          CustomIconWidget(),
+          const Spacer(),
+          CustomIconWidget(
+            icon: icon,
+          ),
         ],
       ),
     );
