@@ -30,6 +30,7 @@ class CustomTextFieldWidget extends StatelessWidget {
         hintStyle: const TextStyle(color: kPrimayColor),
         enabledBorder: buildBorder(),
         errorBorder: buildBorder(color: Colors.red),
+        focusedErrorBorder: buildBorder(color: Colors.red),
         focusedBorder: buildBorder(color: kPrimayColor),
       ),
     );
