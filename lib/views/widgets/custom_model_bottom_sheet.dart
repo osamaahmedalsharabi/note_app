@@ -30,7 +30,10 @@ class CustomModelBottomSheet extends StatelessWidget {
             }
           },
           builder: (context, state) {
-            return const SingleChildScrollView(child: AddNoteForm());
+            return SingleChildScrollView(
+                child: AbsorbPointer(
+                    absorbing: state is AddNoteLoading ? true : false,
+                    child: const AddNoteForm()));
           },
         ),
       ),

@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:third_note_app/cubit/add_note_cubit/add_note_cubit.dart';
 import 'package:third_note_app/models/note_model.dart';
+import 'package:third_note_app/views/widgets/color_list_view_widget.dart';
 import 'package:third_note_app/views/widgets/custom_button_widget.dart';
 import 'package:third_note_app/views/widgets/custom_text_field_widget.dart';
 
 class AddNoteForm extends StatefulWidget {
-  const AddNoteForm({
-    super.key,
-  });
+  const AddNoteForm({super.key});
 
   @override
   State<AddNoteForm> createState() => _AddNoteFormState();
@@ -43,6 +42,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hintText: "Content",
             maxLines: 5,
           ),
+          const SizedBox(
+            height: 32,
+          ),
+          const ColorListViewWidget(),
           const SizedBox(
             height: 32,
           ),
