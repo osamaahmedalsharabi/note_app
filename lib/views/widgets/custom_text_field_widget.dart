@@ -4,12 +4,13 @@ import 'package:third_note_app/constants.dart';
 class CustomTextFieldWidget extends StatelessWidget {
   final String hintText;
   final int maxLines;
+  final Function(String)? onChange;
   final Function(String?)? onSaved;
   const CustomTextFieldWidget({
     super.key,
     required this.hintText,
     this.maxLines = 1,
-    this.onSaved,
+    this.onSaved, this.onChange,
   });
 
   @override
@@ -22,6 +23,7 @@ class CustomTextFieldWidget extends StatelessWidget {
           return null;
         }
       },
+      onChanged: onChange,
       onSaved: onSaved,
       maxLines: maxLines,
       cursorColor: kPrimayColor,

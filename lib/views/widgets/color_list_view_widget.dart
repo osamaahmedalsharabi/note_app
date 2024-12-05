@@ -3,7 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:third_note_app/cubit/add_note_cubit/add_note_cubit.dart';
 
 class ColorItem extends StatelessWidget {
-  const ColorItem({super.key, required this.isActive, required this.color});
+  const ColorItem({
+    super.key,
+    required this.isActive,
+    required this.color,
+  });
   final bool isActive;
   final Color color;
   @override
