@@ -9,9 +9,11 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        // resizeToAvoidBottomInset: false,
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             showModalBottomSheet(
+                isScrollControlled: true,
                 shape: const BeveledRectangleBorder(
                     borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(16),
@@ -30,4 +32,3 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:third_note_app/cubit/fetch_notes/fetch_notes_cubit.dart';
+import 'package:third_note_app/models/note_model.dart';
 import 'package:third_note_app/views/edit_note_view.dart';
 
 class NoteItemWidget extends StatelessWidget {
-  const NoteItemWidget({super.key});
+  final NoteModel note;
+  const NoteItemWidget({super.key, required this.note});
 
   @override
   Widget build(BuildContext context) {
@@ -27,29 +31,31 @@ class NoteItemWidget extends StatelessWidget {
             children: [
               ListTile(
                 contentPadding: EdgeInsets.zero,
-                title: const Text(
-                  "Flutter Tips",
-                  style: TextStyle(color: Colors.black, fontSize: 28),
+                title: Text(
+                  note.title,
+                  style: const TextStyle(color: Colors.black, fontSize: 28),
                 ),
-                subtitle: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 6.0),
-                  child: Text(
-                      "Start your career with flutter and enjoy the UI that's made ",
-                      style: TextStyle(
+                subtitle: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6.0),
+                  child: Text(note.subtitle,
+                      style: const TextStyle(
                         color: Colors.black45,
                         fontSize: 18,
                       )),
                 ),
                 trailing: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      note.delete();
+                      BlocProvider.of<FetchNotesCubit>(context).fetchNotes();
+                    },
                     icon: const Icon(
                       Icons.delete,
                       color: Colors.black,
                       size: 32,
                     )),
               ),
-              const Text("May , 21- 2022",
-                  style: TextStyle(
+              Text(note.date,
+                  style: const TextStyle(
                     color: Colors.black45,
                     fontSize: 18,
                   ))

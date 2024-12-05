@@ -17,6 +17,8 @@ class AddNoteForm extends StatefulWidget {
 class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String formatDate =
+      "${DateTime.now().year}/${DateTime.now().month}/${DateTime.now().day}";
   String? title, subtitle;
   @override
   Widget build(BuildContext context) {
@@ -25,9 +27,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
       autovalidateMode: autovalidateMode,
       child: Column(
         children: [
-          const SizedBox(
-            height: 8,
-          ),
           CustomTextFieldWidget(
             onSaved: (data) {
               title = data;
@@ -44,13 +43,13 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hintText: "Content",
             maxLines: 5,
           ),
-          const Spacer(),
+          const SizedBox(
+            height: 32,
+          ),
           CustomButtonWidget(
             onTap: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
-                String formatDate =
-                    "${DateTime.now().year}/${DateTime.now().month}/${DateTime.now().day}";
                 BlocProvider.of<AddNoteCubit>(context).addNote(NoteModel(
                     title: title!,
                     subtitle: subtitle!,
@@ -61,7 +60,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 setState(() {});
               }
             },
-          )
+          ),
+          const SizedBox(
+            height: 16,
+          ),
         ],
       ),
     );
